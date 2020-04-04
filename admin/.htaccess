@@ -1,0 +1,5 @@
+AuthUserFile "/home/officedupf/www/projet-5-openclassroom/admin/.htpasswd"
+AuthGroupFile /dev/null
+AuthName "Accès Restreint à ce dossier"
+AuthType Basic
+require valid-user

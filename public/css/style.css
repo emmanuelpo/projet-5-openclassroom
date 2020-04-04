@@ -1,0 +1,438 @@
+body
+{
+	margin:0;
+	background-image:url("https://images-na.ssl-images-amazon.com/images/I/719thex9OPL._AC_SX450_.jpg");
+	background-repeat: repeat;
+	font-size: 1.1em;
+}
+
+/**#menu                		/** Menu d'en tête sur toute les pages 
+{
+	width:100%;
+	background-color: red;
+	height:60px;
+	position: fixed;
+	top: 0;
+}**/
+
+/**ul
+{
+	text-align: center;
+	padding-right: 20px;
+	padding-top: 5px;
+}
+
+li 
+{
+    display : inline;
+    text-align:center;
+    padding-right: 10px;
+}
+
+li a
+{
+	color:white;
+}**/
+
+/** ---------------------------------------- Menu -------------------------------------**/
+
+#menu-button
+{
+	margin: auto;
+}
+
+#menu
+{
+	position: fixed;
+	width: 100%;
+	top:0;
+	background-color: #FAD7A0;
+	z-index: 2;
+}
+
+.nav-item a{
+	text-decoration:none;
+	color:#AF7AC5;
+	padding-left: 20px;
+}
+
+.nav-item a:hover
+{
+	color: red;
+	text-decoration:none;
+}
+
+/** ---------------------------------------- Page d'accueil -------------------------------------**/
+
+#photoBanniere
+{
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+#titreAccueil
+{
+	text-align: center;
+	margin-top: 90px;
+}
+
+#titreAccueil h1
+{
+	margin:auto;
+	text-align: center;
+	font-size:5.5em;
+}
+
+.card
+{
+	margin: auto;
+	text-align: center;
+	margin-top: 50px;
+	padding-top: 25px;
+	border-radius: 0;
+	box-shadow: 5px 5px 15px black;
+
+}
+
+.Actualite
+{
+	padding-top: 20px;
+	margin-bottom: 30px;
+	text-align: center;
+	border-width: 2px;
+    border-style: solid;
+    border-radius: 25px 25px 25px 25px/25px 25px 25px 25px;
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.programmeJour
+{
+	padding-top: 20px;
+	margin-top: 50px;
+	text-align: center;
+	border-width: 2px;
+    border-style: solid;
+    border-radius: 25px 25px 25px 25px/25px 25px 25px 25px;
+    width: 750px;
+    margin: auto;
+}
+
+#messageBienvenue
+{
+	margin-top: 20px; ;
+	text-align: center;
+}
+
+#descriptionCentre
+{
+	text-align: center;
+}
+
+#contact
+{
+	padding-top: 20px;
+	margin-top: 50px;
+	text-align: center;
+	border-width: 2px;
+    border-style: solid;
+    border-radius: 25px 25px 25px 25px/25px 25px 25px 25px;
+    width: 20%;
+    margin: auto;
+}
+
+#chene
+{
+	text-align: center;
+	margin-top: 50px;
+}
+
+footer
+{
+	background-color: #FAD7A0;
+	height: 100px;
+	margin-top: 30px;
+	color: white;
+}
+
+/** -------------------------------------------Pages Actualités------------------------------------------- **/
+
+.container
+{
+	padding-top: 10px;
+	margin-top: 80px;
+	text-align: center;
+	border-width: 2px;
+    border-style: solid;
+    border-radius: 25px 25px 25px 25px/25px 25px 25px 25px;
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.titleView
+{
+	margin-top: 80px;
+	text-align: center;
+}
+
+.titreActu
+{
+	margin-top: 10px;
+	margin-bottom: 0;
+	font-size: 1.4em;
+	padding-bottom: 20px;
+}
+
+/*#Actualite{
+	background-color: grey;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	margin-left:10px; 
+	margin-right:10px;
+	padding-bottom: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+}*/
+
+.postPage
+{
+	margin-top: 90px;
+}
+
+.contenuActu{
+	padding-bottom: 20px;
+}
+
+.date_publi{
+	padding-bottom: 30px;
+}
+
+.pagination
+{
+	display: inline-block;
+	margin-left:calc(50% - calc(30px * 2));
+	padding: 0;
+	margin-bottom: 20px;
+	border-radius: 8px;
+
+}
+
+.nbPages a
+{
+	color: blue;
+	font-size: 1.1em;
+	margin: 0;
+	padding-left: 5px;
+	padding-right: 5px;
+	text-decoration: none;
+}
+
+#addChapter
+{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.postText
+{
+	margin-top: 80px;
+}
+
+/** -------------------------------------------------Commentaire------------------------------------------- **/
+
+.comment_publish
+{
+	background-color: #f8b195;
+	border-radius: 8px;
+	margin:auto;
+	padding-bottom: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+	width:750px;
+	font-size: 0.9em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+}
+
+.comment_form
+{
+	background-color: #CBBEB5;
+	border-radius: 8px;
+	margin-bottom: 10px;
+	margin-left:10px; 
+	margin-right:10px;
+	padding-bottom: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
+	width:750px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+}
+
+.commentPseudo
+{
+	font-size: 1.5em;
+}
+
+/** -------------------------------------------------Pages Journal du Centre------------------------------------------- **/
+#button a
+{
+	color:white;
+	text-decoration: none;
+}
+.containerChapter
+{
+	margin-top: 30px;
+}
+
+.scheduleText
+{
+	margin-top: 80px;
+}
+
+.prev_page
+{
+	margin-left: 10px;
+	color: white;
+}
+
+.titleZone
+{
+	margin-top: 20px;
+	margin-left: 10px;
+}
+
+.editZone
+{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.valider
+{
+	margin-top: 10px;
+	margin-left: 10px;
+}
+/** ----------------------------------------------------Page de Connexion -------------------------------------------------- **/
+
+
+#loginform			  /** Bloc permettant de se connecter à la page d'administration **/
+{
+	background-color: rgba(255, 240, 188, 0.8);
+	border-radius: 8px;
+	width: 300px;
+	height: 185px;
+	margin:auto;
+	padding-top: 20px;
+	position: relative;
+	top: 75px;
+}
+
+.login              /** Partie login/pseudo pour se connecter **/
+{
+	padding-right: 53px;
+}
+
+.forminput         /** Partie d'écriture du login ou mot de passe **/
+{
+	padding-top: 10px;
+	padding-left: 40px;
+}
+
+.submit				/** Bouton d'envoi du formulaire de connection **/
+{
+	margin-top: 10px;
+	margin-left:135px;
+}
+
+#erreurLogin
+{
+	text-align: center;
+	color: rgb(139,0,0);
+	font-weight: bold;
+}
+
+
+
+/** -----------------------------------------------Media Queries / Responsive Design----------------------------------------------- **/
+
+.navbar-toggler-icon
+{
+	color: black;
+	font-weight: bold;
+	font-size: 1.5em;
+	height: 1.16em;
+	border-width: 2px;
+    border-style: solid;
+    border-radius: 25px 25px 25px 25px/25px 25px 25px 25px;
+}
+
+
+@media (max-width: 769px){
+	
+	.menu-item
+	{
+		margin-right: calc(50% - calc(125px * 2));
+	}
+
+	#contact
+	{
+		width:750px;
+	}
+
+
+}
+
+@media (max-width: 450px){
+
+	.banniereAccueil
+	{
+		display: none;
+	}
+
+	#titreAccueil h1
+	{
+		font-size: 3.5em;
+	}
+
+	#blocPrincipal
+	{
+		margin:auto;
+	}
+
+	.Actualite
+	{
+		width: 100%;
+	}
+
+	.programmeJour
+	{
+	    width: 100%;
+	}
+
+	#contact
+	{
+		width:100%;
+	}
+
+	.container
+	{
+		width:300px;
+	}
+
+	.comment_publish
+	{
+		width:300px;
+	}
+
+	.comment_form
+	{
+		width:300px;
+	}
+}
+

@@ -1,0 +1,11 @@
+{
+    "name": "openclassroom/projet5",
+    "autoload":{
+        "psr-4": {
+            "Controller\\":"controller"
+        }
+    },
+    "require": {
+        "twig/twig": "^2.0"
+    }
+}
