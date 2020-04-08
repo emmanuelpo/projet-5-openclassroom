@@ -51,10 +51,10 @@ class newsController extends Controller
 		$countReq = $postManager->countNews();
 		$countPosts = $countReq->rowCount();
 		$pagesTotales = ceil($countPosts/$postParPage);
-
 		ob_start();
 
 		foreach ($postsNews as $value) {
+
 			echo   '<article class="Actualite">
 						<div class="containerActualite">
 							<div class="titreActu">

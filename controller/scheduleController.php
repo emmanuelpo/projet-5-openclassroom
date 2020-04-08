@@ -117,7 +117,7 @@ class scheduleController extends Controller
 		$postSchedule = $postManager->getSchedule($_GET['id']);
 		$titlePage = "Journal de l'accueil de Loisirs";
 
-		return $this->renderTwig('view/SchedulePage.php',['titlePage' => $titlePage, 'post' => $postSchedule ]);
+		return $this->renderTwig('view/schedulePage.php',['titlePage' => $titlePage, 'post' => $postSchedule ]);
 	}
 
 

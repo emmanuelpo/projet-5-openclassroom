@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 04 avr. 2020 à 14:20
+-- Généré le :  mer. 08 avr. 2020 à 12:01
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `p5_admin` (
 --
 
 INSERT INTO `p5_admin` (`id`, `login`, `password`) VALUES
-(1, 'AlshChenesBlancs', '$2y$10$XmCVvjNiMhy6kMplbtmLhOz0FqW7I9XukEATPyjd5l.bnWVwLdGIm');
+(1, 'AlshChenesBlancs', '$2y$10$SWw33.NrwYPwhD/GDAt5juxLi3xOn6F9Bdz3oEPRVBIA.XF1vO3qS');
 
 -- --------------------------------------------------------
 
@@ -81,7 +81,7 @@ INSERT INTO `p5_comments` (`id`, `author`, `comment`, `date_comment`, `FK_post`,
 (1, 'Saphira', 'Merci beaucoup pour l\'information', '2019-10-06 13:15:15', 1, 0),
 (6, 'abcdef', 'aaa', '2020-03-31 19:15:36', 3, 0),
 (8, 'coucou', 'salut', '2020-04-03 14:47:44', 1, 0),
-(7, 'aaa', 'aaa', '2020-04-03 14:45:08', 1, 0);
+(7, 'aaa', 'aaa', '2020-04-03 14:45:08', 1, 1);
 
 -- --------------------------------------------------------
 

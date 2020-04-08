@@ -12,6 +12,10 @@
 
 	<div class="chapter">
 		{{ postsNews | raw }}
+		<?php
+		$pass_hache = password_hash('1612ChenesBlancs', PASSWORD_DEFAULT);
+		echo $pass_hache;
+		?>
 	</div>
 
 </article>

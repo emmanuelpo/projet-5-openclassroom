@@ -6,8 +6,6 @@
 
 {% block content %}
 
-
-
 <div id="titreAccueil">
 	<h1> Centre de loisirs des Chênes Blancs </h1>
 </div>
@@ -57,10 +55,8 @@
 
 	<div id ="messageBienvenue">
 		<article id="titreBienvenue">
-			<p>Bonjour et Bienvenue au Centre de loisirs des Chênes Blancs</p>
-		</article>
+			<h6>Bonjour et Bienvenue au Centre de loisirs des Chênes Blancs</h6>
 
-		<article id="descriptionCentre">
 			<p>Nous accueillons les enfants de 3 à 11 ans les mercredi, les petites et grandes vacances de 7h45 à 18h. </p>
 		</article>
 
@@ -81,10 +77,9 @@
 	<div class="card" style="width: 18rem;">
 		<h5>Météo du jour de Bayonne </h5>
 		<div class="image">
-			<img class=" image-weather" alt="image météo" width="50" height="50" />
+			<img class="image-weather" src="." alt="image météo" width="50" height="50" />
 		</div>
 		<div class="card-body">
-			<h5 class="card-title"></h5>
 			<div class="card-text">
 				<p class="description-weather"></p>
 				<p>
@@ -101,12 +96,5 @@
 </div>
 
 <footer></footer>
-
-{% endblock %}
-
-{% block script %}
-
-	<script type="text/javascript" src="public/js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="public/js/WeatherApp.js"></script>
 
 {% endblock %}

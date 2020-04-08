@@ -3,6 +3,7 @@
 namespace Controller;
 
 require_once('model/adminConnexion.php');
+require_once('controller/controller.php');
 
 class adminController extends Controller
 {

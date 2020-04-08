@@ -22,17 +22,20 @@ class CommentController extends Controller
 		ob_start();
 
 		foreach ($comments as $values){
-
-		echo'
-	            <div class="comment_publish">
-	                <strong class="commentPseudo">'.$values["author"].'</strong>
-	                <p><i> le '.$values["date_comment_fr"].'</i></p>
-	                <p>'.$values["comment"].'</p>
-	                <p class="signalComment"><a  href="index.php?action=signalComment&amp;id='.$values["id"].'&amp;post='.$values["id"].'"> (Signaler le commentaire)</a>';
-		            if(isset($_SESSION["auth"])) { 
-	                        echo ' <a href="index.php?action=deleteComment&amp;id='.$values["id"].'"> (Supprimer le commentaire)</a>
-		                </p></div>';
+			if(isset($_SESSION["auth"])) { 
+				echo '  <div class="comment_publish">
+		                    <strong class="commentPseudo">'.$values["author"].'</strong>
+			                <p><i> le '.$values["date_comment_fr"].'</i></p>
+			                <p>'.$values["comment"].'</p>
+			                <p class="signalComment"><a  href="index.php?action=signalComment&amp;id='.$values["id"].'&amp;post='.$values["id"].'"> (Signaler le commentaire)</a><a href="index.php?action=deleteComment&amp;id='.$values["id"].'"> (Supprimer le commentaire)</a></div>';
 	               }
+	        else{
+	        	echo '<div class="comment_publish">
+	                    <strong class="commentPseudo">'.$values["author"].'</strong>
+		                <p><i> le '.$values["date_comment_fr"].'</i></p>
+		                <p>'.$values["comment"].'</p>
+		                <p class="signalComment"><a  href="index.php?action=signalComment&amp;id='.$values["id"].'&amp;post='.$values["id"].'"> (Signaler le commentaire)</a></div>';
+	        }
 		}
 
 		$comment = ob_get_clean();
