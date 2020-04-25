@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<h2 class="titleView">Journal du centre de loisirs</h2>
+<h2 class="titleView">Journal du centre de loisirs</h2> <!-- Page d'affichage des différentes articles du journal du centre côté administrateur-->
 
 <article class="containerChapter">
 
@@ -16,8 +16,8 @@
 
 </article>
 
-<div id="addChapter">
-  	<button type="button" id="button" class="btn btn-primary"><a href="index.php?action=addSchedule">AJOUTER UNE PAGE DU JOURNAL</a></button></div>
+<div id="addChapter"> <!-- Bouton d'ajout d'un article -->
+  	<button type="button" id="button" class="btn btn-primary"><a href="index.php?action=addSchedule">AJOUTER UN ARTICLE DU JOURNAL</a></button></div>
 
 
 <div class="pagination"> 		<!-- Affiche la pagination et la selection des pages -->

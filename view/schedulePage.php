@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<div class="postPage">
+<div class="postPage"> <!-- Affichage d'un seul article -->
     <article class="container">
             <div class="schedule">
                     <h3>{{post.title}}</h3>

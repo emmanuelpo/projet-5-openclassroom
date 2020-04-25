@@ -6,7 +6,7 @@ require_once("model/Manager.php");
 
 class scheduleManager extends Manager
 {
-	public function getSchedules($depart,$scheduleParPage) /** Récupération des actualités pour leur affichage **/
+	public function getSchedules($depart,$scheduleParPage) /** Récupération des articles du journal pour leur affichage **/
 	{
 		$db = $this->dbConnect();
 			$req = $db->prepare('SELECT id, title, content, DATE_FORMAT(date_content, \'%d/%m/%Y à %Hh%i\') AS date_fr FROM p5_schedule WHERE state = TRUE ORDER BY date_content DESC LIMIT :depart, :scheduleParPage');
@@ -18,7 +18,7 @@ class scheduleManager extends Manager
 			return $datas;
 	}
 
-	public function getSchedule($scheduleId) /** Récupération des actualités dans un tableau **/
+	public function getSchedule($scheduleId) /** Récupération des article dans un tableau **/
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('SELECT id, title, content, DATE_FORMAT(date_content, \'%d/%m/%Y à %Hh%i\') AS date_fr FROM p5_schedule WHERE id = ?');
@@ -28,7 +28,7 @@ class scheduleManager extends Manager
 		return $p5_schedule;
 	}
 
-	public function postSchedule($title,$content) /** Préparation à l'insertion d'une actualité dans la table p5_schedule **/
+	public function postSchedule($title,$content) /** Préparation à l'insertion d'un article dans la table p5_schedule **/
 	{
 		$db = $this->dbConnect();
 		$news = $db->prepare('INSERT INTO p5_schedule(FK_admin, title, content, date_content,state) VALUES(1, ?, ?, NOW(), TRUE)');
@@ -37,7 +37,7 @@ class scheduleManager extends Manager
 		return $affectedLines;
 	}
 
-	public function editSchedule($id,$title,$content)	/** Préparation de la modification d'un chapitre dans la table p5_schedule **/
+	public function editSchedule($id,$title,$content)	/** Préparation de la modification d'un article dans la table p5_schedule **/
 	{
 
 		$db = $this->dbConnect();
@@ -49,7 +49,7 @@ class scheduleManager extends Manager
 
 	}
 
-	public function deleteSchedule($id) /** Préparation de la suppression d'un chapitre dans la table p5_schedule **/
+	public function deleteSchedule($id) /** Préparation de la suppression d'un article dans la table p5_schedule **/
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('UPDATE p5_schedule SET state = FALSE WHERE id = :id');
@@ -59,7 +59,7 @@ class scheduleManager extends Manager
 
 	}
 
-	public function countSchedule()	/** Permet de compter toutes les pages du journal non supprimé afin de mettre en place la pagination**/
+	public function countSchedule()	/** Permet de compter tous les articles du journal non supprimé afin de mettre en place la pagination**/
 	{
 		$db = $this->dbConnect();
 		$req = $db->query('SELECT id FROM p5_schedule WHERE state = TRUE');
@@ -67,7 +67,7 @@ class scheduleManager extends Manager
 		return $req;
 	}
 
-	public function lastSchedule() /** Permettra d'afficher la dernière page du journal en date sur la page d'accueil **/
+	public function lastSchedule() /** Permettra d'afficher le dernier article du journal en date sur la page d'accueil **/
 	{
 		$db = $this->dbConnect();
 		$req = $db->query('SELECT id, title, SUBSTRING(content,1,100) AS ExtractContent, DATE_FORMAT(date_content, \'%d/%m/%Y à %Hh%i\') AS date_fr FROM p5_schedule WHERE state = TRUE ORDER BY date_content DESC LIMIT 0, 1');

@@ -14,13 +14,15 @@
 </head>
 
 <section class="scheduleText">
+	
+	<div class="buttonText">
+		<button type="button" id="button" class="btn btn-primary"><a href="index.php?action=adminSchedule"> Retour à la liste des articles du journal !</a></button>
+	</div>
 
-	<button type="button" class="btn btn-primary"><a href="index.php?action=adminSchedule"> Retour au journal !</a></button>
-
-	<form action="index.php?action=addSchedule" method="post">	<!-- Création d'un jour du journal avec son titre et son texte -->
+	<form action="index.php?action=addSchedule" method="post">	<!-- Création d'un article du journal avec son titre et son texte -->
 		<div class="titleZone">
 			<label for="title"> Date ou sortie du jour </label>
-			<input type="varchar" id="title" name="title" />
+			<input type="varchar" style="width: 300px" id="title" name="title" />
 		</div>
 		<div class="editZone">
 			<label for="content"></label><br />

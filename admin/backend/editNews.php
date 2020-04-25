@@ -13,14 +13,16 @@
 	{% endblock %}
 </head>
 
-<section class="postText">
+<section class="postText"> <!-- Edition d'une actualité -->
 
-	<p class="prev_page"><a href="index.php?action=adminNews"> Retour à la liste des actualités !</a></p>
+	<div class="buttonText">
+		<button type="button" id="button" class="btn btn-primary"><a href="index.php?action=adminNews"> Retour à la liste 	des actualités !</a></button>
+	</div>
 
 	<form action="index.php?action=editNews&amp;id={{post.id}}" method="post"> <!-- Modification d'un article avec son titre et son texte -->
 		<div class="titleZone">
 			<label for="title"> Titre de l'actualité </label>
-			<input type="varchar" id="title" name="title" value="{{post.title}}" />
+			<input type="varchar" style="width: 300px" id="title" name="title" value="{{post.title}}" />
 		</div>
 		<div class="editZone">
 			<label for="content"></label><br />
@@ -31,8 +33,8 @@
 		</div>
 	</form>
 
-	<div id="deleteLink">
-	    <a href="index.php?action=deleteNews&amp;id={{_get.id}}"> Supprimer l'actualité</a>
+	<div class="buttonText">
+	    <button type="button" id="button" class="btn btn-primary"><a href="index.php?action=deleteNews&amp;id={{_get.id}}"> Supprimer l'actualité</a></button>
 	</div>
 
 </section>

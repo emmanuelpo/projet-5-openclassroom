@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<div class="page_article">
+<div class="page_article"> <!-- Affichage d'une seule actualité -->
     <div class="postPage">
     	<article class="container">
                 <div class="news">
@@ -23,22 +23,18 @@
                 </p>
     
     	</article>
-        <section class ="commentaires">
+        <section class ="commentaires"> <!-- Affichage des commentaire -->
             <div class="comment">
                 {{ comments | raw }}
             </div>
         </section>
     </div>
-    
 
-
-
-
-    <section class="comment_form">
+    <section class="comment_form"> <!-- Création et publication d'un commentaire sur une actualité -->
 
         	<h2>Poster votre Commentaire</h2>
 
-            <form action="index.php?action=addComment&amp;id={{post.id}}" method="post">   <!-- Création et publication d'un commentaire sur une actualité -->
+            <form action="index.php?action=addComment&amp;id={{post.id}}" method="post">   
                 <div>
                     <label for="author"> Auteur</label><br />
                     <input type="text" id="author" name="author" />

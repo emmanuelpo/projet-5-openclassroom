@@ -11,7 +11,7 @@
 
 	if(isset($_GET['action']))
 	{
-		if($_GET['action'] == 'post')
+		if($_GET['action'] == 'post') /** Afficher l'actualité selectionné (newsPage.php) **/
 		{
             if (isset($_GET['id']) && $_GET['id'] > 0)
             {
@@ -23,7 +23,7 @@
             }
 
 		}
-        if($_GET['action'] == 'schedulePost')
+        if($_GET['action'] == 'schedulePost') /** Afficher un article du journal (SchedulePage.php) **/
         {
             if (isset($_GET['id']) && $_GET['id'] > 0)
             {
@@ -50,7 +50,7 @@
             }  
             $news->visitorView($page);
         }
-        elseif ($_GET['action'] == 'schedule') /** Aller sur la page des news (mode visiteur) **/
+        elseif ($_GET['action'] == 'schedule') /** Aller sur la page des articles du journal (mode visiteur) **/
         {
             if(isset($_GET['page']))
             {
@@ -67,17 +67,17 @@
             $schedule->visitorView($page);
         }
 
-        elseif ($_GET['action'] == 'login')
+        elseif ($_GET['action'] == 'login') /** Se connecter à la partie administrateur **/
         {
             $login->loginValid();
         }
 
-        elseif ($_GET['action'] == 'logout')
+        elseif ($_GET['action'] == 'logout') /** Se déconnecter de la partie administrateur **/
         {
             $login->logout();
         }
 
-        elseif ($_GET['action'] == 'addComment')        /** Ajouter un commentaire sur un chapitre **/
+        elseif ($_GET['action'] == 'addComment')        /** Ajouter un commentaire sur une actualité **/
         {
             if (isset($_GET['id']) && $_GET['id'] > 0)
             {
@@ -95,14 +95,14 @@
                 echo 'Erreur! aucun identifiant de chapitre envoyé';
             }
         }
-        elseif ($_GET['action'] == 'signalComment')
+        elseif ($_GET['action'] == 'signalComment') /** Signaler un commentaire **/
         {
             if (isset($_GET['id']) && $_GET['id'] > 0)
             {
                 $comment->reportComment($_GET['id'],$_GET['post']);
             }
         }
-        elseif ($_GET['action'] == 'validComment')
+        elseif ($_GET['action'] == 'validComment') /** Valider un commentaire qui a été reporté **/
             {
                 if (isset($_GET['id']) && $_GET['id'] > 0)
                 {
@@ -120,7 +120,7 @@
                     throw new Exception("Aucun identifiant de commentaire envoyé ");
                 }
             } 
-        elseif ($_GET['action'] == 'adminNews')
+        elseif ($_GET['action'] == 'adminNews') /** Afficher la page d'administration d'actualité **/
         {
             if(isset($_GET['page']))
             {
@@ -136,7 +136,7 @@
             }  
             $news->adminNews($page);
         }
-        elseif ($_GET['action'] == 'addNews') /** Ajouter un chapitre **/
+        elseif ($_GET['action'] == 'addNews') /** Ajouter une actualité **/
             {
                 if (!empty($_POST))
                 {
@@ -149,7 +149,7 @@
                         echo 'Erreur: tout les champs ne sont pas remplis !';
                     }
                 }
-                else       /** Aller sur la page pour écrire un nouveau chapitre **/
+                else       /** Aller sur la page pour écrire une nouvelle actualité **/
                 {
                     $news->writeNews();  
                 }
@@ -166,7 +166,7 @@
                     throw new Exception("Aucun identifiant de chapitre envoyé");
                 }
             } 
-        elseif ($_GET['action'] == 'deleteNews')
+        elseif ($_GET['action'] == 'deleteNews') /** Supprimer une actualité **/
             {
                 /** Supprimer une actualité **/
                 if (isset($_GET['id']) && $_GET['id'] > 0)
@@ -178,7 +178,7 @@
                     throw new Exception("Aucun identifiant de chapitre envoyé ");
                 }
             }
-        elseif ($_GET['action'] == 'adminSchedule')
+        elseif ($_GET['action'] == 'adminSchedule') /** Afficher la page d'administration du journal **/
         {
             if(isset($_GET['page']))
             {
@@ -194,7 +194,7 @@
             }  
             $schedule->adminSchedule($page);
         }
-        elseif ($_GET['action'] == 'addSchedule') /** Ajouter un chapitre **/
+        elseif ($_GET['action'] == 'addSchedule') /** Ajouter un article du journal **/
             {
                 if (!empty($_POST))
                 {
@@ -212,7 +212,7 @@
                     $schedule->writeSchedule();  
                 }
             }
-            elseif ($_GET['action'] == 'editSchedule') /** Editer une actualité **/
+            elseif ($_GET['action'] == 'editSchedule') /** Editer un article **/
             {
                 
                 if (isset($_GET['id']) && $_GET['id'] > 0)
@@ -224,9 +224,8 @@
                     throw new Exception("Aucun identifiant de chapitre envoyé");
                 }
             } 
-            elseif ($_GET['action'] == 'deleteSchedule')
+            elseif ($_GET['action'] == 'deleteSchedule') /** Supprimer un article **/
             {
-                /** Supprimer une actualité **/
                 if (isset($_GET['id']) && $_GET['id'] > 0)
                 {
                     $schedule->deleteSchedule($_GET['id']);
@@ -236,35 +235,6 @@
                     throw new Exception("Aucun identifiant de chapitre envoyé ");
                 }
             }
-        
-        /** elseif (isset($_SESSION["active"]))
-        {
-            if ($_GET['action'] == 'logout')
-            {
-                $login->logout();
-            }
-            elseif ($_GET['action'] == 'listChapter')       /** Récupérer la liste des chapitres sur la page 
-            {
-                if(isset($_GET['page']))
-                {
-                    $page = (int)$_GET['page'];
-                    if($page <1)
-                    {
-                        $page = 1;
-                    }
-                }
-                else
-                {
-                    $page=1;
-                }
-                $chap->listChapter($page);
-            }
-          
-        }
-        else
-        {
-            header('Location: index.php'); /** Renvoie à la première page du site **/
-        //} 
 	}
 	else
 	{

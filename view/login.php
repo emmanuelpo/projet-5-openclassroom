@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<h2 class="titleView">Page de Connexion</h2>
+<h2 class="titleView">Page de Connexion</h2> <!-- Page de login pour se connecter à la partie administrateur du site -->
 
 <section id="loginform">
 	<div id="erreurLogin">

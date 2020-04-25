@@ -35,16 +35,16 @@ class scheduleController extends Controller
 		foreach ($postSchedule as $value) {
 			echo '<article class="programmeJour">
 					<div class="containerProgramme">
-						<div class="titreArticle">
+						<div class="titre">
 							'.$value["title"].'
 						</div>
-						<div class="contenuArticle">
+						<div class="contenu">
 							'.substr(nl2br($value["content"]),0,100).'
-						</div>
+						...</div>
 						<div class="date_publi">
-							<i> Mis en ligne le'.$value["date_fr"].'</i>
+							<i> Mis en ligne le '.$value["date_fr"].'</i>
 						</div>
-						<em><a class="fullChapter" href="index.php?action=schedulePost&amp;id='.$value["id"].' ">Lire l\'article</a></em>
+						<em><a class="link" href="index.php?action=schedulePost&amp;id='.$value["id"].' ">Lire l\'article</a></em>
 						<em><a class="modifChapter" href="index.php?action=editSchedule&amp;id='.$value["id"].'"> (Modifier l\'article)</a></em>
 					</div>
 				</article>';
@@ -81,11 +81,11 @@ class scheduleController extends Controller
 		foreach ($postSchedule as $value) {
 			echo '<article class ="programmeJour">
 					<div class="containerProgramme">
-						<div class="titreArticle">
+						<div class="titre">
 							'.$value["title"].'
 						</div>
-						<div class="contenuArticle">
-							'.substr(nl2br($value["content"]),0,100).'
+						<div class="contenu">
+							'.substr(nl2br($value["content"]),0,100).'...
 						</div>
 						<div class="date_publi">
 							<i>Mis en ligne le '.$value["date_fr"].'</i>
@@ -93,7 +93,7 @@ class scheduleController extends Controller
 					</div>
 				
 				<p>
-				<em><a class="fullChapter" href="index.php?action=schedulePost&amp;id='.$value["id"].'">Lire l\'article </a></em>
+				<em><a class="link" href="index.php?action=schedulePost&amp;id='.$value["id"].'">Lire l\'article </a></em>
 				</p>
 				</article>';
 		}

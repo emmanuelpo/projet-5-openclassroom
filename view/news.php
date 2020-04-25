@@ -6,16 +6,12 @@
 
 {% block content %}
 
-<h2 class="titleView">Dernières Actualités du centre de loisirs</h2>
+<h2 class="titleView">Dernières Actualités du centre de loisirs</h2><!-- Page d'affichage des différentes actualités-->
 
 <article class="containerChapter">
 
 	<div class="chapter">
 		{{ postsNews | raw }}
-		<?php
-		$pass_hache = password_hash('1612ChenesBlancs', PASSWORD_DEFAULT);
-		echo $pass_hache;
-		?>
 	</div>
 
 </article>

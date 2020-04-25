@@ -7,7 +7,7 @@ require_once('model/commentManager.php');
 class CommentController extends Controller
 {
 
-	public function listComment()	/** Permet d'afficher les commentaires d'un chapitre **/
+	public function listComment()	/** Permet d'afficher les commentaires d'une actualité **/
 	{
 
 		$postManager = new \OpenClassrooms\projetopenclassroom\model\newsManager();
@@ -24,16 +24,16 @@ class CommentController extends Controller
 		foreach ($comments as $values){
 			if(isset($_SESSION["auth"])) { 
 				echo '  <div class="comment_publish">
-		                    <strong class="commentPseudo">'.$values["author"].'</strong>
+		                    <strong class="commentPseudo">'.htmlspecialchars($values["author"]).'</strong>
 			                <p><i> le '.$values["date_comment_fr"].'</i></p>
-			                <p>'.$values["comment"].'</p>
+			                <p>'.htmlspecialchars($values["comment"]).'</p>
 			                <p class="signalComment"><a  href="index.php?action=signalComment&amp;id='.$values["id"].'&amp;post='.$values["id"].'"> (Signaler le commentaire)</a><a href="index.php?action=deleteComment&amp;id='.$values["id"].'"> (Supprimer le commentaire)</a></div>';
 	               }
 	        else{
 	        	echo '<div class="comment_publish">
-	                    <strong class="commentPseudo">'.$values["author"].'</strong>
+	                    <strong class="commentPseudo">'.htmlspecialchars($values["author"]).'</strong>
 		                <p><i> le '.$values["date_comment_fr"].'</i></p>
-		                <p>'.$values["comment"].'</p>
+		                <p>'.htmlspecialchars($values["comment"]).'</p>
 		                <p class="signalComment"><a  href="index.php?action=signalComment&amp;id='.$values["id"].'&amp;post='.$values["id"].'"> (Signaler le commentaire)</a></div>';
 	        }
 		}
@@ -43,7 +43,7 @@ class CommentController extends Controller
 		return $this->renderTwig('view/newsPage.php',['comments' => $comment,'titlePage' => $titlePage, 'post' => $post ]);
 	}
 
-	public function addComment($FK_post, $author, $comment)  /** Permet d'ajouter un commentaire dans un chapitre **/
+	public function addComment($FK_post, $author, $comment)  /** Permet d'ajouter un commentaire dans une actualité **/
 	{
 		$commentManager = new \OpenClassrooms\projetopenclassroom\model\commentManager();
 
@@ -57,7 +57,7 @@ class CommentController extends Controller
 		}
 	}
 
-	public function deleteComment($id)	/** Permet de supprimer un commentaire d'un chapitre **/
+	public function deleteComment($id)	/** Permet de supprimer un commentaire d'une actualité **/
 	{
 		$commentManager = new \OpenClassrooms\projetopenclassroom\model\commentManager();
 

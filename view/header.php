@@ -1,6 +1,7 @@
+<!-- Header/menu sur toutes les pages avec modifications du menu pour le responsive design-->
 <nav id="menu" class="navbar navbar-expand-xl"> 
     <button class="navbar-toggler collapsed" id="menu-button" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="true" aria-label="Toggle navigation"><span class="navbar-toggler-icon">≡</span>
-    </button>       <!-- Header/menu sur toutes les pages -->
+    </button>       
     <div class="navbar-collapse collapse" id="main-nav">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link" href="index.php">Accueil</a></li>

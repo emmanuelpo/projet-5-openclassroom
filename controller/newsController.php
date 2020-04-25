@@ -7,10 +7,8 @@ require_once('model/newsManager.php');
 
 class newsController extends Controller
 {
-	/** Permet d'afficher la page d'accueil du site avec la dernière actualité paru **/
-
-	public function main(){								
-
+	public function main(){	 /** Permet d'afficher la page d'accueil du site avec la dernière actualité et le dernier article  paru **/
+	
 		$postManager = new \OpenClassrooms\projetopenclassroom\model\newsManager();
 		$postManagers = new \OpenClassrooms\projetopenclassroom\model\scheduleManager();
 
@@ -22,9 +20,8 @@ class newsController extends Controller
 		return $this->renderTwig('view/accueil.php',['posts' => $posts[0],'postSchedule'=> $postSchedule[0], 'title' => $title]);
 	}
 
-	/** Permet d'afficher la liste des actualités en appelant le fichier html news.php **/
 
-	public function listNews($page)			
+	public function listNews($page) /** Permet d'afficher la liste des actualités en appelant le fichier html news.php **/
 	{
 		$postParPage = 5;
 		$depart = ($page - 1) * $postParPage ;
@@ -37,9 +34,7 @@ class newsController extends Controller
 		
 	}
 
-	/** Permet d'afficher la liste des actualités **/
-
-	public function visitorView($page)		
+	public function visitorView($page)		/** Permet d'afficher la liste des actualités **/
 	{
 		$title = "Actualité de l'accueil de Loisirs";
 
@@ -57,10 +52,10 @@ class newsController extends Controller
 
 			echo   '<article class="Actualite">
 						<div class="containerActualite">
-							<div class="titreActu">
+							<div class="titre">
 								'.$value["title"].'
 							</div>
-							<div class="contenuActu">
+							<div class="contenu">
 								'.substr(nl2br($value["content"]),0,100).'...
 							</div>
 							<div class="date_publi">
@@ -68,7 +63,7 @@ class newsController extends Controller
 							</div>
 						</div>
 						<p>
-						<em><a class="button" href="index.php?action=post&amp;id='.$value["id"].'">Lire l\'actualité </a></em>
+						<em><a class="link" href="index.php?action=post&amp;id='.$value["id"].'">Lire l\'actualité </a></em>
 						</p>
 					</article>';
 		}
@@ -86,7 +81,7 @@ class newsController extends Controller
 		return $this->renderTwig('view/news.php',['postsNews' => $post,'pagesArticles' => $page, 'title' => $title]);
 	}
 
-	public function adminNews($page)		
+	public function adminNews($page)		/** Permet d'afficher la liste des actualités côté administrateur **/
 	{
 		$title = "Administration Actualité de l'accueil de Loisirs";
 
@@ -108,16 +103,16 @@ class newsController extends Controller
 		foreach ($postsNews as $value) {
 			echo '<article class="Actualite">
 					<div class="containerActualite">
-						<div class="titreActu">
+						<div class="titre">
 							'.$value["title"].'
 						</div>
-						<div class="contenuActu">
-							'.substr(nl2br($value["content"]),0,100).'
+						<div class="contenu">
+							'.substr(nl2br($value["content"]),0,100).'...
 						</div>
 						<div class="date_publi">
 							'.$value["date_fr"].'
 						</div>
-						<em><a class="fullChapter" href="index.php?action=post&amp;id='.$value["id"].' ">Lire l\'actualité</a></em>
+						<em><a class="link" href="index.php?action=post&amp;id='.$value["id"].' ">Lire l\'actualité</a></em>
 						<em><a class="modifChapter" href="index.php?action=editNews&amp;id='.$value["id"].'"> (Modifier l\'actualité)</a></em>
 					</div>
 				</article>
@@ -157,16 +152,12 @@ class newsController extends Controller
 		return $this->renderTwig('admin/backend/adminNews.php',['postsNews' => $post,'pagesArticles' => $page, 'title' => $title, 'reports' => $reporter]);
 	}
 
-	/** Appelle la page permettant d'écrire d'une nouvelle actualité' **/
-
-	public function writeNews()				   
+	public function writeNews()	/** Appelle la page permettant d'écrire d'une nouvelle actualité' **/			   
 	{
 		return $this->renderTwig('admin/backend/addNews.php');
 	}
 
-	/** Permet de créer de nouveau chapitre **/
-
-	public function addNews($title,$content)	
+	public function addNews($title,$content)	/** Permet de créer de nouvelles actualité **/
 	{
 		$titleNews = "Ajouter une actualité";
 
@@ -182,9 +173,7 @@ class newsController extends Controller
 		}
 	}
 
-	/** Permet d'éditer une actualité existantes **/
-
-	public function editNews($id)					
+	public function editNews($id) /** Permet d'éditer une actualité existantes **/					
 	{
 		$titleEditNews = 'Editer une actualité';
 
@@ -201,9 +190,7 @@ class newsController extends Controller
 
 	}
 
-	/** Permet de supprimer une actualité existants **/
-
-	public function deleteNews($id)				
+	public function deleteNews($id)	/** Permet de supprimer une actualité existants **/		
 	{
 		$postManager = new \OpenClassrooms\projetopenclassroom\model\newsManager();
 

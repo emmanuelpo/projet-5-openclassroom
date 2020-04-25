@@ -15,14 +15,16 @@
 </head>
 
 
-<section class="NewsText">
+<section id="newsText">
 
-	<button type="button" class="btn btn-primary"><a href="index.php?action=adminNews"> Retour à la liste des actualités !</a></button>
-
+	<div class="buttonText">
+		<button type="button" id="button" class="btn btn-primary"><a href="index.php?action=adminNews"> Retour à la liste des actualités !</a></button>
+	</div>
+	
 	<form action="index.php?action=addNews" method="post">	<!-- Création d'une actualité avec son titre et son texte -->
 		<div class="titleZone">
 			<label for="title"> Titre de l'actualité </label>
-			<input type="varchar" id="title" name="title" />
+			<input type="varchar" style="width: 300px" id="title" name="title" />
 		</div>
 		<div class="editZone">
 			<label for="content"></label><br />

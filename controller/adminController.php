@@ -14,7 +14,6 @@ class adminController extends Controller
 		{
 			$username = htmlspecialchars($_POST["username"]);
 			$password = htmlspecialchars($_POST["password"]);
-			//$password = password_hash($password, PASSWORD_BCRYPT); Le temps de mettre le site en ligne (faire un password_hash au moment de la mise en ligne du site)
 
 			$loginManager = new \OpenClassrooms\projetopenclassroom\model\adminConnexion();
 

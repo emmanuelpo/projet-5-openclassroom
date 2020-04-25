@@ -37,7 +37,7 @@ class newsManager extends Manager
 		return $affectedLines;
 	}
 
-	public function editNews($id,$title,$content)	/** Préparation de la modification d'un chapitre dans la table p5_news **/
+	public function editNews($id,$title,$content)	/** Préparation de la modification d'une actualité dans la table p5_news **/
 	{
 
 		$db = $this->dbConnect();
@@ -49,7 +49,7 @@ class newsManager extends Manager
 
 	}
 
-	public function deleteNews($id) /** Préparation de la suppression d'un chapitre dans la table p5_news **/
+	public function deleteNews($id) /** Préparation de la suppression d'une actualité dans la table p5_news **/
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('UPDATE p5_news SET state = FALSE WHERE id = :id');

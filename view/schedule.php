@@ -6,9 +6,9 @@
 
 {% block content %}
 
-<h2 class="titleView">Journal du centre de loisirs</h2>
+<h2 class="titleView">Journal du centre de loisirs</h2> <!-- Page d'affichage des différentes articles du journal du centre-->
 
-<article class="programme">
+<article class="containerSchedule">
 
 	<div class="chapter">
 		{{ postsSchedule | raw }}
