@@ -4,10 +4,10 @@ namespace Controller;
 
 require_once('model/newsManager.php');
 
-
 class newsController extends Controller
 {
 	public function main(){	 /** Permet d'afficher la page d'accueil du site avec la dernière actualité et le dernier article  paru **/
+
 	
 		$postManager = new \OpenClassrooms\projetopenclassroom\model\newsManager();
 		$postManagers = new \OpenClassrooms\projetopenclassroom\model\scheduleManager();

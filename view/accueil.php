@@ -59,7 +59,7 @@
 
 			<p>Bonjour à vous, le centre de loisirs des Chênes Blancs est un accueil de loisirs fraîchement rénové qui accueille les enfants âgés de 3 à 11 ans tous les mercredis et durant les vacances scolaires (hors vacances de Noël). Des jeux, des activités, des sorties sont mis en place par notre équipe d'animation et de direction afin que vos enfants s'épanouissent, découvrent et apprennent tout en s'amusant.
 			</p>
-			<p> Veuillez trouver ci-dessous le dossier d'inscription à nous remettre compléter avec les différents éléments demandés et nous le retourner en main propre ou par adresse postale afin d'inscrire vos enfants.</p>
+			<p> Veuillez trouver ci-dessous le dossier d'inscription à nous remettre complété avec les différents éléments demandés et nous le retourner en main propre ou par voie postale afin d'inscrire vos enfants.</p>
 			<a class ="link-download" href="public/fichiers/dossier-inscription.pdf" download="dossier-inscription.pdf" target="_blank"> Télecharger le dossier d'inscription</a>
 		</article>
 

@@ -1,7 +1,12 @@
 $(function(){
 
-	var apiKey = 'd582b2072c7f543b4510de643d171854';
+	var apiKey = '9a9564f5aa0489a3c13527d0f5bbc28d';
 	var baseUrl = 'https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?q=Bayonne,fr&appid=' + apiKey + '&units=metric&lang=fr';
+
+	var x = new XMLHttpRequest();
+	x.open('GET',baseUrl);
+	x.setRequestHeader('X-Requested-With','XMLHttpRequest');
+	x.send();
 
 	console.log(baseUrl);
 
@@ -23,5 +28,7 @@ $(function(){
 		$('.image-weather').attr('alt', response.name)
 
 
-	});
+	}).fail( () => {
+		$('.description-weather').text("L'API est actuellement indisponible, veuillez nous excusez");
+	})
 });

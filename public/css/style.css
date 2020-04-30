@@ -440,7 +440,7 @@ footer p
 
 	.banniereAccueil
 	{
-		display: none;
+		width:300px;
 	}
 
 	#titreAccueil h1
@@ -468,9 +468,11 @@ footer p
 		width: 100%;
 	}
 
-	#photoCentre
+	.photoStructure
 	{
-		display: none;	}
+		width: 300px;
+		height: 230px;
+	}
 
 	#contact
 	{
