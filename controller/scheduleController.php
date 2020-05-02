@@ -30,37 +30,7 @@ class scheduleController extends Controller
 		$countPosts = $countReq->rowCount();
 		$pagesTotales = ceil($countPosts/$postParPage);
 
-		ob_start();
-
-		foreach ($postSchedule as $value) {
-			echo '<article class="programmeJour">
-					<div class="containerProgramme">
-						<div class="titre">
-							'.$value["title"].'
-						</div>
-						<div class="contenu">
-							'.substr(nl2br($value["content"]),0,100).'
-						...</div>
-						<div class="date_publi">
-							<i> Mis en ligne le '.$value["date_fr"].'</i>
-						</div>
-						<em><a class="link" href="index.php?action=schedulePost&amp;id='.$value["id"].' ">Lire l\'article</a></em>
-						<em><a class="modifChapter" href="index.php?action=editSchedule&amp;id='.$value["id"].'"> (Modifier l\'article)</a></em>
-					</div>
-				</article>';
-		}
-		
-		$post = ob_get_clean();
-
-		ob_start();
-
-	    	for($i=1;$i<=$pagesTotales;$i++) {
-	    		  echo '<a class ="nbPages" href="index.php?action=adminSchedule&page='.$i.'"> '.$i.' </a>'  ;
-	    		}
-
-    	$page = ob_get_clean();
-
-		return $this->renderTwig('admin/backend/adminSchedule.php',['postsSchedule' => $post,'pagesSchedule' => $page, 'title' => $title]);
+		return $this->renderTwig('view/admin/backend/adminSchedule.php',['postSchedule' => $postSchedule,'pNumber' => $pagesTotales, 'title' => $title]);
 	}
 
 	public function visitorView($page)		
@@ -76,39 +46,7 @@ class scheduleController extends Controller
 
 		$title = "Journal de l'accueil de Loisirs";
 
-		ob_start();
-
-		foreach ($postSchedule as $value) {
-			echo '<article class ="programmeJour">
-					<div class="containerProgramme">
-						<div class="titre">
-							'.$value["title"].'
-						</div>
-						<div class="contenu">
-							'.substr(nl2br($value["content"]),0,100).'...
-						</div>
-						<div class="date_publi">
-							<i>Mis en ligne le '.$value["date_fr"].'</i>
-						</div>
-					</div>
-				
-				<p>
-				<em><a class="link" href="index.php?action=schedulePost&amp;id='.$value["id"].'">Lire l\'article </a></em>
-				</p>
-				</article>';
-		}
-		
-		$post = ob_get_clean();
-
-		ob_start();
-
-	    	for($i=1;$i<=$pagesTotales;$i++) {
-	    		  echo '<a class ="nbPages" href="index.php?action=schedule&page='.$i.'"> '.$i.' </a>'  ;
-	    		}
-
-    	$page = ob_get_clean();
-
-		return $this->renderTwig('view/schedule.php',['postsSchedule' => $post,'pagesSchedule' => $page, 'title' => $title]);
+		return $this->renderTwig('view/schedule.php',['postSchedule' => $postSchedule,'pNumber' => $pagesTotales, 'title' => $title]);
 	}
 
 	public function schedulePage()
@@ -123,7 +61,7 @@ class scheduleController extends Controller
 
 	public function writeSchedule()				   /** Appelle la page permettant d'écrire une nouvelle page du journal **/
 	{
-		return $this->renderTwig('admin/backend/addSchedule.php');
+		return $this->renderTwig('view/admin/backend/addSchedule.php');
 	}
 
 	public function addSchedule($title,$content)	/** Permet de créer une nouvelle page du journal **/
@@ -153,7 +91,7 @@ class scheduleController extends Controller
 			header('Location: index.php?action=adminSchedule');
 		}
 
-		return $this->renderTwig('admin/backend/editSchedule.php', ['post' => $post]);
+		return $this->renderTwig('view/admin/backend/editSchedule.php', ['post' => $post]);
 
 	}
 

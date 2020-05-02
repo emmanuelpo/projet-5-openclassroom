@@ -77,6 +77,11 @@
             $login->logout();
         }
 
+        elseif($_GET['action'] == 'forgetPassword')
+        {
+            $login->forgetPassword();
+        }
+
         elseif ($_GET['action'] == 'addComment')        /** Ajouter un commentaire sur une actualité **/
         {
             if (isset($_GET['id']) && $_GET['id'] > 0)

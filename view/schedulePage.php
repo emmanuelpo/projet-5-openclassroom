@@ -11,7 +11,7 @@
             <div class="schedule">
                     <h3>{{post.title}}</h3>
                     <em class="date_publish"> Mis en ligne le {{post.date_fr}} </em>
-                    <p>{{post.content | raw}}</p>
+                    <p>{{post.content}}</p>
             </div>
 
             <p class="prev_page">

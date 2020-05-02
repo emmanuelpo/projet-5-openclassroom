@@ -20,7 +20,6 @@ class newsController extends Controller
 		return $this->renderTwig('view/accueil.php',['posts' => $posts[0],'postSchedule'=> $postSchedule[0], 'title' => $title]);
 	}
 
-
 	public function listNews($page) /** Permet d'afficher la liste des actualités en appelant le fichier html news.php **/
 	{
 		$postParPage = 5;
@@ -46,115 +45,34 @@ class newsController extends Controller
 		$countReq = $postManager->countNews();
 		$countPosts = $countReq->rowCount();
 		$pagesTotales = ceil($countPosts/$postParPage);
-		ob_start();
 
-		foreach ($postsNews as $value) {
-
-			echo   '<article class="Actualite">
-						<div class="containerActualite">
-							<div class="titre">
-								'.$value["title"].'
-							</div>
-							<div class="contenu">
-								'.substr(nl2br($value["content"]),0,100).'...
-							</div>
-							<div class="date_publi">
-								<i>Mis en ligne le '.$value["date_fr"].'</i>
-							</div>
-						</div>
-						<p>
-						<em><a class="link" href="index.php?action=post&amp;id='.$value["id"].'">Lire l\'actualité </a></em>
-						</p>
-					</article>';
-		}
-		
-		$post = ob_get_clean();
-
-		ob_start();
-
-	    	for($i=1;$i<=$pagesTotales;$i++) {
-	    		  echo '<a class ="nbPages" href="index.php?action=news&page='.$i.'"> '.$i.' </a>'  ;
-	    		}
-
-    	$page = ob_get_clean();
-
-		return $this->renderTwig('view/news.php',['postsNews' => $post,'pagesArticles' => $page, 'title' => $title]);
+		return $this->renderTwig('view/news.php',['postsNews' => $postsNews,'pNumber' => $pagesTotales, 'title' => $title]);
 	}
 
-	public function adminNews($page)		/** Permet d'afficher la liste des actualités côté administrateur **/
+	public function adminNews($page)		/** Permet d'afficher la liste des actualités côté administrateur ainsi que les commentaires signalés**/
 	{
 		$title = "Administration Actualité de l'accueil de Loisirs";
 
+		$postManager = new \OpenClassrooms\projetopenclassroom\model\newsManager();
+		$commentManager = new \OpenClassrooms\projetopenclassroom\model\commentManager();
+
 		$postParPage = 5;
 		$depart = ($page - 1) * $postParPage ;
-		$postManager = new \OpenClassrooms\projetopenclassroom\model\newsManager();
+		
 		$postsNews = $postManager->getNewscast($depart,$postParPage);
 
 		$countReq = $postManager->countNews();
 		$countPosts = $countReq->rowCount();
 		$pagesTotales = ceil($countPosts/$postParPage);
 
-		$commentManager = new \OpenClassrooms\projetopenclassroom\model\commentManager(); 
-		$reportList = $commentManager->postReportComment(); 
+		$reportComments = $commentManager->postReportComment(); 
 
-
-		ob_start();
-
-		foreach ($postsNews as $value) {
-			echo '<article class="Actualite">
-					<div class="containerActualite">
-						<div class="titre">
-							'.$value["title"].'
-						</div>
-						<div class="contenu">
-							'.substr(nl2br($value["content"]),0,100).'...
-						</div>
-						<div class="date_publi">
-							'.$value["date_fr"].'
-						</div>
-						<em><a class="link" href="index.php?action=post&amp;id='.$value["id"].' ">Lire l\'actualité</a></em>
-						<em><a class="modifChapter" href="index.php?action=editNews&amp;id='.$value["id"].'"> (Modifier l\'actualité)</a></em>
-					</div>
-				</article>
-				';
-		}
-		
-		$post = ob_get_clean();
-
-		ob_start();
-
-	    	for($i=1;$i<=$pagesTotales;$i++) {
-	    		  echo '<a class ="nbPages" href="index.php?action=adminNews&page='.$i.'"> '.$i.' </a>'  ;
-	    		}
-
-    	$page = ob_get_clean();
-
-    	/** Permet d'afficher la liste des commentaires signalés   **/
-
-        ob_start();
-
-		foreach ($reportList as $values){
-
-		echo'
-	            <div class="comment_publish">
-	                <strong class="commentPseudo">'.$values["author"].'</strong>
-	                <p> le '.$values["date_comment_fr"].'</p> 
-	                <p>'.$values["comment"].'</p>
-	                <p class="signalComment"><a  href="index.php?action=validComment&amp;id='.$values["id"].'"> (Valider le Commentaire)</a>';
-		            if(isset($_SESSION["auth"])) { 
-	                        echo ' <a href="index.php?action=deleteComment&amp;id='.$values["id"].'"> (Supprimer le commentaire)</a>
-		                </p></div>';
-	               }
-		}
-
-		$reporter = ob_get_clean();
-
-		return $this->renderTwig('admin/backend/adminNews.php',['postsNews' => $post,'pagesArticles' => $page, 'title' => $title, 'reports' => $reporter]);
+		return $this->renderTwig('view/admin/backend/adminNews.php',['postsNews' => $postsNews,'pNumber' => $pagesTotales,'title' => $title,'report' => $reportComments]);
 	}
 
 	public function writeNews()	/** Appelle la page permettant d'écrire d'une nouvelle actualité' **/			   
 	{
-		return $this->renderTwig('admin/backend/addNews.php');
+		return $this->renderTwig('view/admin/backend/addNews.php');
 	}
 
 	public function addNews($title,$content)	/** Permet de créer de nouvelles actualité **/
@@ -186,7 +104,7 @@ class newsController extends Controller
 			header('Location: index.php?action=adminNews');
 		}
 
-		return $this->renderTwig('admin/backend/editNews.php', ['post' => $post]);
+		return $this->renderTwig('view/sadmin/backend/editNews.php', ['post' => $post]);
 
 	}
 

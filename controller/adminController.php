@@ -52,4 +52,10 @@ class adminController extends Controller
 		header ('Location: index.php');
 	}
 
+	public function forgetPassword()
+	{
+		$title="Mot de passe oublié";
+
+		return $this->renderTwig('view/forgetPassword.php',['title' => $title]);
+	}
 }
