@@ -11,7 +11,23 @@
 <article class="containerChapter">
 
 	<div class="chapter">
-		{{ postsSchedule | raw }}
+		{% for value in postSchedule %}
+			<article class="programmeJour">
+					<div class="containerProgramme">
+						<div class="titre">
+							{{value.title}}
+						</div>
+						<div class="contenu">
+							{{ value.content | striptags | slice(0, 100) }}...
+						</div>
+						<div class="date_publi">
+							<i> Mis en ligne le {{value.date_fr}}</i>
+						</div>
+						<em><a class="link" href="index.php?action=schedulePost&amp;id={{value.id}} ">Lire l'article</a></em>
+						<em><a class="modifChapter" href="index.php?action=editSchedule&amp;id={{value.id}}"> (Modifier l'article)</a></em>
+					</div>
+				</article>
+		{% endfor%}
 	</div>
 
 </article>
@@ -21,7 +37,10 @@
 
 
 <div class="pagination"> 		<!-- Affiche la pagination et la selection des pages -->
-    <p class ="nbPages">Pages: {{pagesSchedule | raw}} </p> 
+    <p class ="nbPages">Pages:
+    {% for i in 1..pNumber %}
+	    <a class ="nbPages" href="index.php?action=adminSchedule&page={{ loop.index }}"> {{ loop.index }} </a>
+	{% endfor %} </p> 
 </div>
 
 

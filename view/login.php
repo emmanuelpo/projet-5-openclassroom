@@ -23,6 +23,9 @@
         <label for="password"> Mot de Passe:</label>
         <input type="password" name="password" id="password" required="required"/><br />
     </div>
+    <div class="forgetPassword">
+        <a class="textlink" href="index.php?action=forgetPassword">Mot de passe oublié ?</a>
+    </div>
     <input type="submit" name="submit" value="Se connecter" class="submit"/>
 	</form>
 </section>

@@ -25,7 +25,23 @@
     	</article>
         <section class ="commentaires"> <!-- Affichage des commentaire -->
             <div class="comment">
-                {{ comments | raw }}
+                {% for values in comments %}
+                    {% if session.auth is defined %}
+                        <div class="comment_publish">
+                            <strong class="commentPseudo">{{values.author}}</strong>
+                            <p><i> le {{values.date_comment_fr}}</i></p>
+                            <p>{{values.comment}}</p>
+                            <p class="signalComment"><a  href="index.php?action=signalComment&amp;id={{values.id}}&amp;post={{value.id}}"> (Signaler le commentaire)</a><a href="index.php?action=deleteComment&amp;id={{values.id}}"> (Supprimer le commentaire)</a>
+                        </div>
+                    {% else %}
+                        <div class="comment_publish">
+                            <strong class="commentPseudo">{{values.author}}</strong>
+                            <p><i> le {{values.date_comment_fr}}</i></p>
+                            <p>{{values.comment}}</p>
+                            <p class="signalComment"><a  href="index.php?action=signalComment&amp;id={{values.id}}&amp;post={{values.id}}"> (Signaler le commentaire)</a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </div>
         </section>
     </div>

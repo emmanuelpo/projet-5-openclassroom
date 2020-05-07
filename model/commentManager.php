@@ -45,9 +45,8 @@ class commentManager extends Manager
     public function postReportComment() /** Récupération des commentaires reportés de la base de données **/
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\') AS date_comment_fr FROM p5_comments where report = TRUE ORDER BY date_comment DESC');
+        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\') AS date_comment_fr FROM p5_comments WHERE report = TRUE ORDER BY date_comment DESC');
         $comments->execute();
-
 
         return $comments;
     }

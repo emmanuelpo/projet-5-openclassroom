@@ -16,4 +16,42 @@ class adminConnexion extends Manager
 
 		return $logincheck;
 	}
+
+	public function getToken()
+	{
+		$db = $this->dbConnect();
+		$stmt = $db->prepare('SELECT token FROM p5_admin');
+		$stmt->execute();
+
+		$email = $stmt->fetchColumn();
+
+		return $email;
+	}
+
+	public function updateToken($token,$login)
+	{
+		$db = $this->dbConnect();
+		$stmt = $db->prepare('UPDATE p5_admin SET token = :token WHERE login = :login');
+		$stmt->execute(array('token'=>$token, 'login'=>$login));
+
+		return $stmt;
+	}
+
+	public function updatePassword($password,$token)
+	{
+		$db = $this->dbConnect();
+		$pass = $db->prepare('UPDATE p5_admin SET password = :password WHERE token = :token');
+		$pass->execute(array('password'=>$password, 'token'=>$token));
+
+		return $pass;
+	}
+
+	public function invalidToken($token)
+	{
+		$db = $this->dbConnect();
+		$stmt = $db->prepare('UPDATE p5_admin SET token = NULL WHERE token = :token');
+		$stmt->execute(array('token'=>$token));
+
+		return $stmt;
+	}
 }

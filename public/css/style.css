@@ -375,8 +375,8 @@ footer p
 {
 	background-color: rgba(255, 240, 188, 0.8);
 	border-radius: 8px;
-	width: 300px;
-	height: 185px;
+	width: 320px;
+	height: 230px;
 	margin:auto;
 	padding-top: 20px;
 	position: relative;
@@ -397,7 +397,7 @@ footer p
 .submit				/** Bouton d'envoi du formulaire de connection **/
 {
 	margin-top: 10px;
-	margin-left:135px;
+	margin-left:115px;
 }
 
 #erreurLogin
@@ -407,7 +407,16 @@ footer p
 	font-weight: bold;
 }
 
+.forgetPassword
+{
+	text-align: center;
+}
 
+.textlink:hover
+{
+	text-decoration: none;
+	color: red;
+}
 
 /** -----------------------------------------------Media Queries / Responsive Design----------------------------------------------- **/
 
