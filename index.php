@@ -168,7 +168,6 @@
             } 
         elseif ($_GET['action'] == 'deleteNews') /** Supprimer une actualité **/
             {
-                /** Supprimer une actualité **/
                 if (isset($_GET['id']) && $_GET['id'] > 0)
                 {
                     $news->deleteNews($_GET['id']);
