@@ -68,7 +68,7 @@ class adminController extends Controller
 					$token = uniqid();
 					$url = "http://officedutourismestrasbourg-projet2.fr/projet-5-openclassroom/index.php?action=token&token=$token";
 
-					$email = "no-replybonjour@gmail.com";
+					$email = "no-reply@centreloisirschenesblancs.com";
 					$to = "emmanuel.polidoro@gmail.com";
 					$subject = "Bonjour!";
 					$body = "Bonjour voici votre lien de réinitialisation de mot de passe ".$url;
