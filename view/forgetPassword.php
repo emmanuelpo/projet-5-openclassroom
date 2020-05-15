@@ -9,14 +9,12 @@
 	<h2 class="titleView">Mot de passe oublié</h2>
 
 	<form  method="post">
-		<div class="forminput">
-	        <label for="email">E-mail: </label>
-	        <input type="text" placeholder="Adresse mail" name="email" required="required"/>
-	        <button type="submit"> Réinitialiser le mot de passe </button>
+		<div class="forminputpassword">
+	        <label for="email" class ="email_label">Veuillez indiquer votre adresse mail </label></br >
+	        <input type="text" placeholder="Adresse mail" name="email" class = "email_password" required="required"/>
+			<button type="submit" class="email_submit"> Réinitialiser le mot de passe </button>
+			<p  class ="succes_mail"> {{mail_send}} </p>
 	    </div>
-	    
     </form>
-
-    {{ok |raw }}
 
 {% endblock %}

@@ -71,7 +71,7 @@
 		<img class="photoStructure" src="public/image/photoCentreInterieur.jpg" alt="Photo du centre de loisirs 3"/><br/>
 	</div>
 
-	<div id="contact">  <!-- Informations pour contacter le centre de loisirs -->
+	<div id="contact_information">  <!-- Informations pour contacter le centre de loisirs -->
 		<article>
 			<h5>Contact</h5>
 			<p>Adresse: 44 passage des Tilleuls 64100 Bayonne</p>

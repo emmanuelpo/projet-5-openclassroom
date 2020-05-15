@@ -1,11 +1,16 @@
 <?php
 
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
     require 'vendor/autoload.php';
 
     $login = new Controller\adminController();
     $comment = new Controller\commentController();
     $news = new Controller\newsController();
     $schedule = new Controller\scheduleController();
+    $contact = new Controller\contactController();
 
 	session_start();
 
@@ -77,14 +82,46 @@
             $login->logout();
         }
 
-        elseif($_GET['action'] == 'forgetPassword')
+        elseif($_GET['action'] == 'forgetPassword') /** Génère un token et envoie un mail permettant la réinitialisation du mot de passe **/
         {
             $login->getToken();
         }
 
-        elseif($_GET['action'] == 'token')
+        elseif($_GET['action'] == 'token') /** Permet la récupération du token généré et renouveler son mot de passe **/
         {
                 $login->newPassword();
+        }
+
+        elseif($_GET['action'] == 'contact')
+        {
+            $contact->visitorContact() ;
+        }
+
+        elseif($_GET['action'] == 'addFormContact')
+        { 
+            if (!empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['email']) && !empty($_POST['object_contact']) && !empty($_POST['text_contact'])){
+               $contact->addFormContact($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['object_contact'], $_POST['text_contact']);
+            }
+            else{
+                echo 'Erreur: tout les champs ne sont pas remplis !';
+            }
+        }
+
+        elseif($_GET['action'] == 'adminContact')
+        {
+                $contact->adminContact();
+        }
+        
+        elseif($_GET['action'] == 'deleteContact')
+        {
+            if (isset($_GET['id']) && $_GET['id'] > 0)
+            {
+                $contact->deleteContact($_GET['id']) ;
+            }
+            else
+            {
+                throw new Exception("Aucun identifiant de formulaire envoyé ");
+            }   
         }
 
         elseif ($_GET['action'] == 'addComment')        /** Ajouter un commentaire sur une actualité **/

@@ -18,7 +18,7 @@ class adminController extends Controller
 
 			$account = $loginManager->getLogin($username);
 
-			//$pass= password_hash("abcdef", PASSWORD_DEFAULT);
+			//$passtest= password_hash("aaa", PASSWORD_DEFAULT);
 
 			if (!$account){
 				$_SESSION['erreurLogin'] = "Mauvais login ou mot de passe";
@@ -68,7 +68,7 @@ class adminController extends Controller
 					$token = uniqid();
 					$url = "http://officedutourismestrasbourg-projet2.fr/projet-5-openclassroom/index.php?action=token&token=$token";
 
-					$email = "no-reply@centreloisirschenesblancs.com";
+					$email = "no-reply@centrechenesblancs.com";
 					$to = "emmanuel.polidoro@gmail.com";
 					$subject = "Bonjour!";
 					$body = "Bonjour voici votre lien de réinitialisation de mot de passe ".$url;
@@ -82,32 +82,37 @@ class adminController extends Controller
 						echo" Un problème est survenu";
 					}
 
-					$ok = ob_get_clean();		
+					$mail_send = ob_get_clean();		
 			}
 		}
 		else{
 				$ok = "";
 		}
-		return $this->renderTwig('view/forgetPassword.php',['title' => $title, 'ok' => $ok]);
+		return $this->renderTwig('view/forgetPassword.php',['title' => $title, 'mail_send' => $mail_send]);
 	}
 
 	public function newPassword()
 	{
 		$loginManager = new \OpenClassrooms\projetopenclassroom\model\adminConnexion();
 		$token = $loginManager->getToken();
+		$valid = " ";
+		$error = " ";
 
 		if(isset($token) && !empty($token)){
-			if( isset($_POST['newPassword'])){
-				$password = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
-				$newPass = $loginManager->updatePassword($password,$token);
-				echo "Mot de passe modifié avec succés !";
-				$loginManager->invalidToken($token);
+			if( isset($_POST['newPassword']) && isset($_POST['confirmPassword'])){
+				if($_POST['newPassword'] == $_POST['confirmPassword']){
+					$password = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
+					$newPass = $loginManager->updatePassword($password,$token);
+					$valid = "Mot de passe modifié avec succés !";
+					$loginManager->invalidToken($token);
+				}else{
+					$error = "Les deux champs remplis ne correspondent pas, veuillez réessayer !";
+				}
 			}
 		}
 		else{
-			echo "Erreur: vous avez utilisé un lien obsolète";
-			exit();
+			return header('Location: index.php');
 		}
-		return $this->renderTwig('view/admin/token/token.php');
+		return $this->renderTwig('view/admin/token/token.php',['valid' => $valid, 'error' => $error]);
 	}
 }

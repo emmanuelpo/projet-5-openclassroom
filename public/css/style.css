@@ -157,7 +157,7 @@ body
 	padding-top: 10px;
 }
 
-#contact
+#contact_information
 {
 	padding-top: 20px;
 	margin-top: 50px;
@@ -368,6 +368,7 @@ footer p
 	margin-top: 10px;
 	margin-left: 10px;
 }
+
 /** ----------------------------------------------------Page de Connexion -------------------------------------------------- **/
 
 
@@ -379,6 +380,7 @@ footer p
 	height: 230px;
 	margin:auto;
 	padding-top: 20px;
+	text-align: center;
 	position: relative;
 	top: 75px;
 }
@@ -391,13 +393,11 @@ footer p
 .forminput         /** Partie d'écriture du login ou mot de passe **/
 {
 	padding-top: 10px;
-	padding-left: 40px;
 }
 
 .submit				/** Bouton d'envoi du formulaire de connection **/
 {
-	margin-top: 10px;
-	margin-left:115px;
+	margin-top: 20px;
 }
 
 #erreurLogin
@@ -417,6 +417,111 @@ footer p
 	text-decoration: none;
 	color: red;
 }
+
+/** ----------------------------------------------------Pages de récupération de mot de passe------------------------------ **/
+
+.forminputpassword
+{
+	background-color: rgba(255, 240, 188, 0.8);
+	border-radius: 8px;
+	width: 320px;
+	height: 190px;
+	margin:auto;
+	padding-top: 15px;
+	text-align: center;
+	position: relative;
+	top: 75px;	
+}
+
+.email_password
+{
+	margin-top: 10px;
+	padding-left: 5px;
+}
+
+.email_submit
+{
+	margin-top:20px;
+}
+
+.succes_mail
+{
+	margin-top: 5px;
+}
+
+.forminput_token
+{
+	background-color: rgba(255, 240, 188, 0.8);
+	border-radius: 8px;
+	width: 320px;
+	height: 250px;
+	margin:auto;
+	padding-top: 15px;
+	text-align: center;
+	position: relative;
+	top: 75px;	
+}
+
+.succes_password
+{
+	margin-top: 10px;
+}
+
+
+/** ----------------------------------------------------Page de Contact -------------------------------------------------- **/
+
+#contactform
+{
+	background-color: rgba(255, 240, 188, 0.8);
+	border-radius: 8px;
+	width: 320px;
+	height: 500px;
+	margin:auto;
+	padding-top: 20px;
+	text-align: center;
+	position: relative;
+	top: 75px;
+}
+
+#first_name
+{
+	margin-left: 19px;
+}
+
+#email
+{
+	margin-left: 14px;
+}
+
+#object_contact
+{
+	margin-left: 17px;
+}
+
+#message
+{
+	margin-top: 20px;
+}
+
+.contact_us_admin
+{
+	background-color: rgba(255, 240, 188, 0.8);
+	padding-top: 10px;
+	margin-top: 80px;
+	text-align: center;
+	border-width: 2px;
+    border-style: solid;
+    border-radius: 25px 25px 25px 25px/25px 25px 25px 25px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.containerContact
+{
+	margin-bottom: 20px;
+}
+
 
 /** -----------------------------------------------Media Queries / Responsive Design----------------------------------------------- **/
 
@@ -483,9 +588,30 @@ footer p
 		height: 230px;
 	}
 
-	#contact
+	#contact_information
 	{
 		width:100%;
+	}
+
+	#loginform			  /** Bloc permettant de se connecter à la page d'administration **/
+	{
+		width: 300px;
+	}
+
+	.forminputpassword
+	{
+		width: 300px;
+	}
+
+	.forminput_token
+	{
+		width: 300px;
+	}
+
+	#contactform
+	{
+		width: 300px;
+		margin-bottom: 20px;
 	}
 
 	.container
