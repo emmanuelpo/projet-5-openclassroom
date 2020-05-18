@@ -420,7 +420,7 @@ footer p
 
 /** ----------------------------------------------------Pages de récupération de mot de passe------------------------------ **/
 
-.forminputpassword
+.forminputpassword /** Formulaire permettant l'envoi de mail de réinitialisation de mot de passe */
 {
 	background-color: rgba(255, 240, 188, 0.8);
 	border-radius: 8px;
@@ -449,7 +449,7 @@ footer p
 	margin-top: 5px;
 }
 
-.forminput_token
+.forminput_token /** Formulaire permettant de changer son mot de passe */
 {
 	background-color: rgba(255, 240, 188, 0.8);
 	border-radius: 8px;
@@ -470,7 +470,7 @@ footer p
 
 /** ----------------------------------------------------Page de Contact -------------------------------------------------- **/
 
-#contactform
+#contactform /** Formulaire de contact côté visiteur **/
 {
 	background-color: rgba(255, 240, 188, 0.8);
 	border-radius: 8px;
@@ -503,18 +503,18 @@ footer p
 	margin-top: 20px;
 }
 
-.contact_us_admin
+.contact_us_admin /** Formulaires de contact remplis côté administrateur **/
 {
 	background-color: rgba(255, 240, 188, 0.8);
 	padding-top: 10px;
-	margin-top: 80px;
-	text-align: center;
+	padding-left: 10px;
 	border-width: 2px;
     border-style: solid;
     border-radius: 25px 25px 25px 25px/25px 25px 25px 25px;
-    width: 400px;
+	width: 400px;
+	margin-top: 80px;
     margin-left: auto;
-    margin-right: auto;
+	margin-right: auto;
 }
 
 .containerContact

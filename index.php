@@ -1,9 +1,5 @@
 <?php
 
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
     require 'vendor/autoload.php';
 
     $login = new Controller\adminController();
@@ -92,12 +88,12 @@
                 $login->newPassword();
         }
 
-        elseif($_GET['action'] == 'contact')
+        elseif($_GET['action'] == 'contact') /** Affiche la page Nous contacter côté visiteur */
         {
             $contact->visitorContact() ;
         }
 
-        elseif($_GET['action'] == 'addFormContact')
+        elseif($_GET['action'] == 'addFormContact') /** Remplu un formulaire de contact */
         { 
             if (!empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['email']) && !empty($_POST['object_contact']) && !empty($_POST['text_contact'])){
                $contact->addFormContact($_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['object_contact'], $_POST['text_contact']);
@@ -107,12 +103,12 @@
             }
         }
 
-        elseif($_GET['action'] == 'adminContact')
+        elseif($_GET['action'] == 'adminContact') /** Affiche la page Nous contacter côté visiteur */
         {
                 $contact->adminContact();
         }
         
-        elseif($_GET['action'] == 'deleteContact')
+        elseif($_GET['action'] == 'deleteContact') /** Supprime un formulaire de contact rempli côté administrateur */
         {
             if (isset($_GET['id']) && $_GET['id'] > 0)
             {

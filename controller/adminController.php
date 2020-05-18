@@ -53,7 +53,7 @@ class adminController extends Controller
 		header ('Location: index.php');
 	}
 
-	public function getToken() /** Permete de récupérer un nouveau mot de passe **/
+	public function getToken() /** Permet de récupérer un nouveau mot de passe en envoyant un mail de réinitialisation **/
 	{
 		$title="Mot de passe oublié";
 
@@ -91,7 +91,7 @@ class adminController extends Controller
 		return $this->renderTwig('view/forgetPassword.php',['title' => $title, 'mail_send' => $mail_send]);
 	}
 
-	public function newPassword()
+	public function newPassword() /** Permet de mettre en place son nouveau mot de passe **/
 	{
 		$loginManager = new \OpenClassrooms\projetopenclassroom\model\adminConnexion();
 		$token = $loginManager->getToken();

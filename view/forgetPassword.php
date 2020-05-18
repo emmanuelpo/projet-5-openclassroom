@@ -8,7 +8,7 @@
 
 	<h2 class="titleView">Mot de passe oublié</h2>
 
-	<form  method="post">
+	<form  method="post"> <!-- Formulaire permettant de récupérer son mot de passe -->
 		<div class="forminputpassword">
 	        <label for="email" class ="email_label">Veuillez indiquer votre adresse mail </label></br >
 	        <input type="text" placeholder="Adresse mail" name="email" class = "email_password" required="required"/>

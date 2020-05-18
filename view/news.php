@@ -17,7 +17,7 @@
 								{{value.title}}
 							</div>
 							<div class="contenu">
-								{{ value.content | striptags | slice(0, 100) }}...
+								{{ value.content | slice(0, 100) | raw }}...
 							</div>
 							<div class="date_publi">
 								<i>Mis en ligne le {{value.date_fr}}</i>

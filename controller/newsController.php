@@ -104,7 +104,7 @@ class newsController extends Controller
 			header('Location: index.php?action=adminNews');
 		}
 
-		return $this->renderTwig('view/sadmin/backend/editNews.php', ['post' => $post]);
+		return $this->renderTwig('view/admin/backend/editNews.php', ['post' => $post]);
 
 	}
 

@@ -6,7 +6,7 @@ require_once('model/contactManager.php');
 
 class contactController extends Controller
 {
-    public function visitorContact()
+    public function visitorContact() /** Affichage de la page Nous contacter côté visiteur */
     {
         $contactManager = new \OpenClassrooms\projetopenclassroom\model\contactManager();
 
@@ -15,7 +15,7 @@ class contactController extends Controller
         return $this->renderTwig('view/contact.php',['titlePage' => $titlePage]);
     }
 
-    public function addFormContact($first_name, $last_name, $email, $object_contact, $text_contact)
+    public function addFormContact($first_name, $last_name, $email, $object_contact, $text_contact) /** Permet de remplir un formulaire de contact */
     {
 
         $contactManager = new \OpenClassrooms\projetopenclassroom\model\contactManager();
@@ -31,7 +31,7 @@ class contactController extends Controller
         }
     }
 
-    public function adminContact()
+    public function adminContact() /** Affichage de la page Nous contacter côté visiteur */
     {
         $contactManager = new \OpenClassrooms\projetopenclassroom\model\contactManager();
         $contact = $contactManager->getContact();

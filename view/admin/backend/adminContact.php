@@ -8,7 +8,7 @@
 
 <h2 class="titleView">Nous contacter</h2>
 
-<article class="containerContact">
+<article class="containerContact"> <!-- Affichage des différents formulaires de contact remplis -->
 	<div class="chapter">
 		{% for values in contacts %}
 			<article class="contact_us_admin">
